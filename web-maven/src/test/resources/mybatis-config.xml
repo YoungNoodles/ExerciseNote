@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    <settings>-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+<!--    </settings>-->
+    <typeAliases>
+        <package name="com.cetc.pojo"/>
+    </typeAliases>
+
+    <environments default="brand">
+        <!-- id是库连接的唯一标识，一个环境标签里可以配置多个库 -->
+        <!-- default是默认使用的库id，运行是使用的是哪个库 -->
+        <environment id="brand">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!-- 数据库连接信息 -->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/><!-- 驱动文件 -->
+                <property name="url" value="jdbc:mysql:///ysd?useServerPrepStmts=true"/><!-- 数据库连接 -->
+                <property name="username" value="root"/><!-- 用户名 -->
+                <property name="password" value="60500002"/><!-- 密码 -->
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!-- 指定当前SQL映射文件路径 -->
+<!--        <mapper resource="UserMapper.xml"/>-->
+        <package name="com.cetc.mapper"/>
+    </mappers>
+</configuration>
